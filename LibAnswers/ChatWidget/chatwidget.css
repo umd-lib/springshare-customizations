@@ -1,0 +1,809 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* html */
+:root {
+  overflow: hidden;
+
+  /* color */
+  --content-primary: #000;
+  --content-success: #0fac49;
+  --content-warning: #ea580c;
+  --content-white: #fff;
+  --content-interactive-primary-default: #e21833;
+
+  --bg-primary: #fff;
+  --bg-secondary: #f8f9fc;
+  --bg-tertiary: #fff9d5;
+  --bg-warning: #ffe6d8;
+  --bg-interactive-hover: #e21833;
+
+  --border-primary: #bdbfc8;
+  --border-interactive-focus: #ffd200;
+  --border-system-primary-hover: #e21833;
+}
+
+/* general */
+.s-la-widget {
+  color: var(--content-primary);
+  background-color: var(--bg-secondary);
+
+  padding: 0px 8px;
+
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 171.429% */
+}
+
+.s-la-widget .chatpane {
+  padding: 0px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* form */
+.form-group label {
+  margin: 0px;
+
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* overwrite form text input focus */
+.s-la-widget .form-control:focus {
+  box-shadow: none;
+}
+
+/* Chat Starting Page */
+/* intro section */
+#login #s-lch-welcome {
+  color: var(--content-primary);
+  background-color: var(--bg-tertiary);
+
+  width: 100%;
+  padding: 8px 16px;
+  margin-top: 16px;
+  margin-bottom: 0px !important;
+
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  border-radius: 8px;
+}
+
+/* form */
+#login #s-lch-login-form {
+  width: 100%;
+
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#login #s-lch-login-form .form-group {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+#login #s-lch-login-form .form-group input,
+#login #s-lch-login-form .form-group select,
+#login #s-lch-login-form .form-group textarea {
+  height: 36px;
+  padding: 4px 8px;
+
+  font-size: 16px;
+
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+}
+
+#login #s-lch-login-form .form-group input:focus,
+#login #s-lch-login-form .form-group select:focus,
+#login #s-lch-login-form .form-group textarea:focus {
+  border: 2px solid var(--border-interactive-focus);
+}
+
+#login #s-lch-login-form .form-group textarea {
+  min-height: 172px;
+}
+
+#login #s-lch-login-form .form-group .btn-chat {
+  color: var(--content-white);
+  background-color: var(--bg-interactive-hover);
+
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  border-radius: 0px;
+}
+
+/* Chat Page */
+/* warning */
+#chat .s-lch-pane::before {
+  content: "Leaving this page will end our chat.";
+
+  background-color: var(--bg-warning);
+
+  width: 100%;
+  padding: 8px 16px;
+  margin: 16px 0px 8px 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+}
+
+/* status bar */
+/* service connection status */
+#chat #s-lch-status {
+  background-color: var(--bg-primary);
+
+  padding: 4px 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+
+  border-radius: 8px;
+}
+
+#chat #s-lch-status.connected {
+  color: var(--content-success);
+}
+
+#chat #s-lch-status.disconnected {
+  color: var(--content-warning);
+}
+
+/* chat funtion buttons */
+#chat #s-lch-header-actions button {
+  width: 23px;
+  height: 23px;
+  margin-right: 0px;
+  margin-left: 8px;
+
+  border: none;
+  border-radius: 8px;
+}
+
+#chat .s-lch-header-end {
+  margin-left: 0px;
+}
+
+/* status bar border */
+#chat .s-lch-pane header.s-lch-pane-header {
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+/* chat area */
+/* timestamp */
+#chat time.s-lch-msg-time {
+  font-size: 12px;
+  margin: 8px 0px 4px 0px;
+}
+
+#chat .s-lch-msg-wrap {
+  margin-right: 12px;
+}
+
+/* chat message - base */
+#chat .s-lch-msg {
+  margin: 4px 0px;
+}
+
+#chat .s-lch-msg-body {
+  padding: 1px 0px;
+}
+
+#chat .s-lch-msg-body .s-lch-msg-txt {
+  background: var(--bg-primary);
+
+  width: fit-content;
+  padding: 8px 16px;
+
+  font-size: 14px;
+
+  border-radius: 8px;
+}
+
+/* chat message - operator */
+#chat .s-lch-msg-op .s-lch-msg-name {
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#chat .s-lch-msg-op time.s-lch-msg-time {
+  margin: 0 0 0 8px;
+}
+
+#chat .s-lch-msg-op .s-lch-msg-txt a {
+  color: var(--content-interactive-primary-default);
+  background-color: var(--bg-primary);
+}
+
+/* chat message - patron */
+#chat .s-lch-msg-patron .s-lch-msg-body {
+  background-color: var(--bg-secondary);
+  color: var(--content-primary);
+
+  display: flex;
+  flex-direction: column;
+}
+
+#chat .s-lch-msg-patron .s-lch-msg-body .s-lch-msg-txt {
+  background: var(--bg-tertiary);
+}
+
+#chat .s-lch-msg-patron .s-lch-msg-txt a {
+  color: var(--content-interactive-primary-default);
+  background-color: var(--bg-tertiary);
+}
+
+/* chat message - system */
+#chat .s-lch-msg-sys .s-lch-msg-txt {
+  padding: 8px 12px;
+  margin: 8px 0px;
+
+  font-size: 14px;
+
+  border-bottom: 1px solid var(--border-primary);
+  border-top: 1px solid var(--border-primary);
+}
+
+#chat .s-lch-msg-sys .s-lch-msg-txt a {
+  color: var(--content-interactive-primary-default);
+  background-color: var(--bg-tertiary);
+}
+
+/* system greetings in the chat */
+#chat #msg_greeting {
+  display: none;
+}
+
+/* chat enter box */
+#chat form#s-lch-post-form {
+  border-top: 1px solid var(--border-primary);
+  padding-top: 8px;
+}
+
+/* chat enter box textarea */
+#chat #s-lch-post-input {
+  background-color: var(--bg-primary);
+
+  width: 100%;
+  height: 108px;
+  padding: 4px 8px;
+
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 16px;
+
+  box-sizing: border-box;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+}
+
+#chat #s-lch-post-input:focus {
+  border: 2px solid var(--border-interactive-focus);
+}
+
+/* chat enter box status */
+#chat .s-lch-form-actions #istyping {
+  font-size: 12px;
+}
+
+/* chat enter buttons */
+#chat .s-lch-form-actions #s-lch-post-submit {
+  color: var(--content-white);
+  background-color: var(--bg-interactive-hover);
+  border-color: var(--border-system-primary-hover);
+
+  width: 120px;
+  padding: 4px 8px;
+  margin: 8px 0px 8px 8px;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  border-radius: 0%;
+}
+
+#chat .s-lch-form-actions .s-lch-btn-file {
+  background: var(--bg-primary);
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid var(--border-system-primary-hover);
+  border-radius: 8px;
+}
+
+#chat .fa-paperclip {
+  color: var(--content-interactive-primary-default);
+
+  font-size: 20px;
+}
+
+/* Chat Feedback Page */
+#chat #s-lch-rate-form {
+  padding-top: 8px;
+}
+
+#chat #s-lch-rate-form .form-group {
+  margin-bottom: 8px;
+}
+
+/* feedback title */
+#chat #s-lch-rate-form legend {
+  background-color: var(--bg-tertiary);
+
+  width: 100%;
+  padding: 8px 16px;
+  margin: 16px 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  font-size: 16px;
+
+  border-radius: 8px;
+}
+
+/* review options */
+#chat #s-lch-rate-form .s-lch-rate-opts {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+#chat #s-lch-rate-form label.radio {
+  background-color: var(--bg-primary);
+
+  width: 64px;
+  height: 64px;
+  padding: 10px 0px 0px 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+
+  position: relative;
+}
+
+#chat #s-lch-rate-form .s-lch-rate-emoji {
+  margin-bottom: 4px;
+
+  font-size: 20px;
+}
+
+#chat #s-lch-rate-form .s-lch-rate-label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#chat #s-lch-rate-form input[type="radio" i] {
+  appearance: none;
+
+  width: 64px;
+  height: 64px;
+
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  transition: 0.2s all linear;
+
+  position: absolute;
+  bottom: 0px;
+  left: 1px;
+  z-index: auto;
+}
+
+#chat #s-lch-rate-form input[type="radio"]:checked {
+  border: 2px solid var(--border-interactive-focus);
+}
+
+#chat #s-lch-rate-form input[type="radio"]:focus {
+  outline: 2px solid var(--border-interactive-focus);
+  outline-offset: -2px;
+}
+
+/* user feedback textarea */
+#chat #s-lch-msg-rate #client_comment {
+  background: var(--bg-primary);
+
+  min-height: 108px;
+
+  font-size: 16px;
+
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+}
+
+#chat #s-lch-msg-rate #client_comment:focus {
+  border: 2px solid var(--border-interactive-focus);
+}
+
+/* review submit button */
+#chat #s-lch-msg-rate .form-group button[type="button"] {
+  display: none;
+}
+
+#chat #s-lch-msg-rate .form-group button[type="submit"] {
+  color: var(--content-white);
+  background-color: var(--bg-interactive-hover);
+
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  border-radius: 0px;
+}
+
+/*  contact email field */
+#chat #s-lch-msg-rate .form-group input[name="client_contact"] {
+  border: 1px solid var(--border-primary);
+
+  font-size: 16px;
+
+  border-radius: 4px;
+}
+
+#chat #s-lch-msg-rate .form-group input[name="client_contact"]:focus {
+  border: 2px solid var(--border-interactive-focus);
+}
+
+/* File Upload Page */
+/* general */
+#file.chatpane {
+  gap: 8px;
+  height: 100vh;
+}
+
+/* upload file view */
+#file .color_head {
+  color: var(--content-primary);
+  background-color: var(--bg-tertiary);
+
+  width: 100%;
+  padding: 8px 16px;
+  margin: 16px 0 0 0;
+
+  display: flex;
+  gap: 8px;
+  justify-content: start;
+  align-items: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  border-radius: 8px;
+}
+
+#file #s-lch-file-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+  height: 100%;
+}
+
+/* file upload additional information */
+#file #s-lch-file-intro {
+  padding: 4px 16px;
+}
+
+/* put the addtional information below the file upload area */
+#file #s-lch-file-form .form-group.s-ui-filedrop {
+  order: -1;
+}
+
+/* file upload action buttons */
+#file #s-lch-file-form .form-group.s-ui-filedrop {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+/* upload button */
+#file #s-lch-file-form .form-group button[type="submit"] {
+  color: var(--content-white);
+  background-color: var(--bg-interactive-hover);
+  border-color: var(--border-system-primary-hover);
+
+  margin: 0;
+  padding: 0px 16px;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  border-radius: 0%;
+}
+
+/* cancel button */
+#file #s-lch-file-form .form-group button[type="button"].btn-file-cancel {
+  color: var(--content-interactive-primary-default);
+  background-color: var(--bg-primary);
+  border-color: var(--border-system-primary-hover);
+
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  border-radius: 0%;
+}
+
+/* file upload area */
+#file .s-ui-filedrop.has-advanced-upload {
+  background-color: var(--bg-primary);
+
+  width: 100%;
+  height: 100%;
+  padding: 15px 15px 60px 15px;
+
+  outline: none;
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+}
+
+/* clear file button */
+#file #s-lch-file-form .form-group button[type="button"].s-ui-filedrop-clear {
+  color: var(--content-interactive-primary-default);
+
+  font-size: 16px;
+  text-transform: capitalize;
+
+  border: none;
+}
+
+#file
+  #s-lch-file-form
+  .form-group
+  button[type="button"].s-ui-filedrop-clear:focus {
+  outline: none;
+}
+
+/* upload progress bar */
+.s-ui-filedrop-progress > div.bar {
+  height: 20px;
+  position: relative;
+  background: var(--bg-secondary);
+  border-radius: 25px;
+  padding: 3px;
+  box-shadow: inset 0 -1px 1px rgba(247, 248, 252, 0.3);
+  margin-bottom: 10px;
+}
+.s-ui-filedrop-progress > div.bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 20px;
+  background-color: var(--bg-interactive-hover);
+  box-shadow:
+    inset 0 2px 9px rgba(247, 248, 252, 0.3),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.s-ui-filedrop-progress > div.bar > span:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(247, 248, 252, 0.5) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(247, 248, 252, 0.5) 50%,
+    rgba(247, 248, 252, 0.5) 75%,
+    transparent 75%,
+    transparent
+  );
+  z-index: 1;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* file uploaded text*/
+#file #s-lch-file-form .s-ui-filedrop label[for="ufile"] {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#file .s-ui-filedrop-filenames {
+  max-height: 90px;
+}
+
+#file .s-ui-filedrop label[for="ufile"] {
+  font-size: 14px;
+}
+
+/* file upload area hover */
+#file .s-ui-filedrop input[type="file"] + label:hover {
+  outline-color: var(--border-interactive-focus);
+}
+
+#file label[for="ufile"].btn-default:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* file uploaded list */
+#file label[for="ufile"],
+.s-ui-filedrop-filenames {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#file label[for="ufile"],
+.s-ui-filedrop-filenames ul {
+  padding-inline-start: 0px;
+}
+
+#file label[for="ufile"],
+.s-ui-filedrop-filenames ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+label[for="ufile"],
+.s-ui-filedrop-filenames ul li::before {
+  content: "";
+  display: block;
+  height: 16px;
+  width: 16px;
+  background-size: 16px 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 25 25' fill='none'%3E%3Cpath d='M14.793 2.27209H6.79297C6.26254 2.27209 5.75383 2.48281 5.37876 2.85788C5.00368 3.23295 4.79297 3.74166 4.79297 4.27209V20.2721C4.79297 20.8025 5.00368 21.3112 5.37876 21.6863C5.75383 22.0614 6.26254 22.2721 6.79297 22.2721H18.793C19.3234 22.2721 19.8321 22.0614 20.2072 21.6863C20.5823 21.3112 20.793 20.8025 20.793 20.2721V8.27209L14.793 2.27209Z' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.793 2.27209V8.27209H20.793' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16.793 13.2721H8.79297' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16.793 17.2721H8.79297' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10.793 9.27209H9.79297H8.79297' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+/* warniung */
+#file #s-lch-file-form .form-group {
+  display: grid;
+  column-gap: 8px;
+}
+
+#file #s-lch-file-form .form-group button[type="submit"] {
+  grid-column: 2 / span 1;
+  grid-row: 2;
+}
+
+#file #s-lch-file-form .form-group button[type="button"].btn-file-cancel {
+  grid-column: 1 / span 1;
+  grid-row: 2;
+}
+
+#file #s-lch-file-form .form-group .s-ui-filedrop-error {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  margin-bottom: 10px;
+
+  color: var(--content-primary);
+  background-color: var(--bg-warning);
+}
+
+/* Offline Page */
+/* general */
+#offline .margin-bottom {
+  margin-bottom: 0px !important;
+}
+
+#offline .color_head {
+  display: none;
+}
+
+/* offline message */
+#offline .s-lch-offline-msg-1 {
+  background-color: var(--bg-tertiary);
+
+  width: 100%;
+  padding: 8px 16px;
+
+  border-radius: 8px;
+}
+
+/* help item list */
+#offline .offline_list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+#offline .offline_list_item {
+  width: 100%;
+  padding: 32px 24px;
+
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  gap: 16px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  border-radius: 8px;
+}
+
+#offline a {
+  color: var(--content-interactive-primary-default);
+  background-color: var(--bg-primary);
+}
+
+#offline a:hover {
+  color: var(--content-interactive-primary-default);
+  background-color: var(--bg-primary);
+}
+
+/* service time list */
+#offline .s-lch-offline-msg-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+#offline .offline_service_time {
+  padding: 4px 16px;
+}
